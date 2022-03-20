@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128178623-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-128178623-1');
+	</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Free and simple tool to download customer reviews from the main Amazon websites and get them sent via email in the chosen format">
+    <meta name="author" content="Angelo Martelli">
+    <meta name="keywords" content="Reviews, Amazon, Download, JSON, CSV, Excel, XLSX">
+    <link rel="icon" href="./image/favicon.ico">
+
+    <title>Reviewi 4 Amazon</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./css/cover.css" rel="stylesheet">
+	
+    <!-- CSS for check boxes -->	
+	<link href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css" rel="stylesheet">
+
+
+  </head>
+
+  <body class="text-center">
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+    	
+        <div class="inner" style="width:120%">
+        <img src="./image/rlogo.png" alt="Reviewi.me" height="50" width="66">
+          <h3 class="masthead-brand">Reviewi.me</h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link active" href="#">Home</a>
+            <a class="nav-link" href="html/HowTo.html">How To</a>
+            <a class="nav-link" href="html/Contact.html">Contact</a>
+             <a class="nav-link" href="html/Donate.html">Donate</a>           
+          </nav>
+        </div>
+      </header>
+
+      <main role="main" class="inner cover">
+        <h1 class="cover-heading">Reviewi For Amazon</h1>
+        <p class="lead">Download Amazon ratings reviews for free. <br> Get them sent to your email address in less then 1 hour. <br> Simple as that!</p>
+
+
+		<div  class="secondaryHeader"> 
+			<div class="button-container" >
+				<form action="../php/request.php" method="post" novalidate="novalidate">
+	
+					<div id="asinContainer" class="input-group" >
+						<input autocapitalize="on" autocorrect="off" class="inputasin" data-val="true" data-val-maxlength="The field Account must be a string with a maximum length of '10'." data-val-maxlength-max="10" data-val-minlength="The field Account must be a string type with a minimum length of '10'." data-val-minlength-min="10" id="Account" maxlength="10" name="ASIN" placeholder="ASIN" spellcheck="false" type="text" value="">
+					<!--<input type="hidden" name="apiEndpoint" id="apiEndpoint" value="https://api.haveibeenpwned.com/unifiedsearch/">-->
+					</div>	
+					<div id="countryContainer" class="input-group" style= "display: none; background: white; border-radius: 20px; padding: 20px 20px; border: 6px solid #ccc;">
+								<div class="pretty p-jelly p-curve p-bigger p-pulse">
+									<input type="checkbox" name="COM" value='Y'/>
+									<div class="state p-danger">
+										<label>COM</label>
+									</div>
+								</div>
+								<div class="pretty p-jelly p-curve p-bigger p-pulse">
+									<input type="checkbox" name="UK" value='Y'/>
+									<div class="state p-primary">
+										<label>UK</label>
+									</div>
+								</div>
+								<div class="pretty p-jelly p-curve p-bigger p-pulse">
+									<input type="checkbox" name="FR" value='Y'/>
+									<div class="state p-info">
+										<label>FR</label>
+									</div>
+								</div>
+								<div class="pretty p-jelly p-curve p-bigger p-pulse">
+									<input type="checkbox" name="DE" value='Y'/>
+									<div class="state p-warning">
+										<label>DE</label>
+									</div>
+								</div>
+								<div class="pretty p-jelly p-curve p-bigger p-pulse">
+									<input type="checkbox" name="IT" value='Y'/>
+									<div class="state p-success">
+										<label>IT</label>
+									</div>
+								</div>
+								<div class="pretty p-jelly p-curve p-bigger p-pulse">
+									<input type="checkbox" name="ES" value='Y'/>
+									<div class="state p-danger">
+										<label>ES</label>
+									</div>
+								</div>	
+								<div class="pretty p-jelly p-curve p-bigger p-pulse">
+									<input type="checkbox" name="IND" value='Y'/>
+									<div class="state p-warning">
+										<label>IN</label>
+									</div>
+								</div>																	
+					<!--<input type="hidden" name="apiEndpoint" id="apiEndpoint" value="https://api.haveibeenpwned.com/unifiedsearch/">-->
+					</div>	
+					<div id="formatContainer" class="input-group" style= "display: none; background: white; border-radius: 20px; padding: 20px 20px; border: 6px solid #ccc;">
+						<div class="pretty p-default p-round">
+							<input type="radio" name="format" value="CSV">
+							<div class="state">
+								<label>CSV</label>
+							</div>
+						</div>
+						<div class="pretty p-default p-round">
+							<input type="radio" name="format" value="JSON">
+							<div class="state">
+								<label>JSON</label>
+							</div>
+						</div>
+						<div class="pretty p-default p-round">
+							<input type="radio" name="format" value="XLSX">
+							<div class="state">
+								<label>XLSX</label>
+							</div>
+						</div>						
+					</div>	
+					<div id="emailContainer" class="input-group" style= "display: none;">
+						<input autocapitalize="off" autocorrect="off" class="inputemail" data-val="true" data-val-maxlength="The field Account must be a string or array type with a maximum length of '255'." data-val-maxlength-max="255" data-val-minlength="The field Account must be a string or array type with a minimum length of '3'." data-val-minlength-min="3" id="Account" maxlength="255" name="Email" placeholder="email address" spellcheck="false" type="email" value="">
+					<!--<input type="hidden" name="apiEndpoint" id="apiEndpoint" value="https://api.haveibeenpwned.com/unifiedsearch/">-->
+					</div>						
+					<div id="submitAll"  class="input-group" style= "display: none;">
+						<button class="sub-button" type="submit">Submit</button>
+					</div>					
+						
+				</form>
+				<div id="selectasin" class="input-group" style= "display: flex;" >
+					<button class="next-button" type="submit"  onclick="choose_country()" >Next</button>
+				</div>
+				<div id="selectcountry"  class="input-group" style= "display: none;">
+					<button class="next-button" type="submit" onclick="choose_format()" >Next</button>
+				</div>
+				<div id="selectformat"  class="input-group" style= "display: none;">
+					<button class="next-button" type="submit" onclick="enter_email()" >Next</button>
+				</div>				
+				
+			</div>
+			
+		</div><br><br>
+		<p class="lead">
+			<a class="btn btn-lg btn-secondary" id="myBtn" style="color: black">Terms and Conditions</a>
+        </p>
+        <!-- The Modal -->
+		<div id="myModal" class="modal">
+
+		  <!-- Modal content -->
+		  <div class="modal-content">
+		    <span class="close">&times;</span>
+		    <h2>Terms and Conditions</h2>
+		    <p>Reviewi.me is free service. There are only few usage limitations.<br>
+		    Only one ASIN per time can be subitted. Result will be sent to the email address provided usually within one hour.<br>
+			During peak of requests, however, it might take longer receive the files.<br>
+			The email address will not be used for any promotional or marketing activity and it will not be sold to any third party.<br>
+			In any case no rights can be claimed for any malfuction of the service, this including: data requested not sent on time, not sent at all,   wrong data received, etc.<br>
+			Reviewi.me does not make usage of cookies. <br>
+			Terms and Condition can change anytime. Visit this page periodically to know what's changed.<br><br>
+
+		</p>
+		  </div>
+
+		</div>
+
+      </main>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>
+          	<span> Reviewi.me is a project by <a href="https://www.linkedin.com/in/angelomartelli" target="_new">Angelo Martelli.</a><br>
+          	<span class="small">Cover template for <a href="https://getbootstrap.com/" target = "_new">Bootstrap</a>, by <a href="https://twitter.com/mdo" target = "_new">@mdo</a>.</span>
+          </p>
+        </div>
+      </footer>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+	<script src="./js/buttons.js"></script>
+	<script src="./js/terms.js"></script>	
+	
+  </body>
+</html>
